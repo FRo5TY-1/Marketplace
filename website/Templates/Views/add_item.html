@@ -1,0 +1,35 @@
+{% extends "./base.html" %} {% block head %} {{ super() }}
+<title>Add Item</title>
+{% endblock head %} {{ super() }} {% block body %}{{ super() }}
+
+<div class="add-item-div">
+  <form method="POST" class="add-item-form" enctype="multipart/form-data">
+    <label for="image">
+      <input type="file" name="image" accept="image/*" />
+    </label>
+    <br />
+    <label for="category">Category</label>
+    <select name="category">
+      <option value="tech">Tech</option>
+      <option value="garden">Garden</option>
+      <option value="books">Books</option>
+      <option value="sports">Sports</option>
+    </select>
+    <br />
+    <label for="name">
+      <input type="text" name="name" placeholder="Item Name" />
+    </label>
+    <br />
+    <label for="description">
+      <input type="text" name="description" placeholder="Item Description" />
+    </label>
+    <br />
+    <label for="price">
+      <input type="number" name="price" placeholder="Item Price" />
+    </label>
+    <br />
+    <button type="submit">add</button>
+  </form>
+</div>
+
+{% endblock body %}

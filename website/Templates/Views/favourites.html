@@ -1,0 +1,29 @@
+{% extends "./base.html" %} {% block head %} {{ super() }}
+<title>Favourites</title> {% endblock head %} {{ super() }} {% block body %} {{
+super() }}
+
+<section class="item-section">
+  {% if favourites %} {% for item in favourites %}
+  <div class="item-div">
+    <img
+      src="{{url_for('static', filename='Pictures/'+item.image)}}"
+      alt="image"
+    />
+    <h3>{{item.name}} <br />$ {{item.price}}</h3>
+    <br />
+    <p>{{item.description}}</p>
+    <form method="POST" action="{{url_for('views.home')}}">
+      <button
+        class="heart-button heart favourited"
+        type="submit"
+        name="item"
+        value="{{item.id}}"
+      ></button>
+    </form>
+  </div>
+  {% endfor %} {% else %}
+  <h3>No Items Selected As Favourite</h3>
+  {% endif %}
+</section>
+
+{% endblock body %} {{ super() }}

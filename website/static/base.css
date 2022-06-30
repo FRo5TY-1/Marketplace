@@ -1,0 +1,47 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.top-nav-links {
+  background-color: rgb(46, 44, 44, 0.8);
+  height: 8vh;
+}
+
+.top-nav-links ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 2vh;
+}
+
+.top-nav-links ul li input {
+  height: 4vh;
+  width: 35vw;
+}
+
+.top-nav-links ul li a:link,
+.top-nav-links ul li a:visited {
+  text-decoration: none;
+  background-color: transparent;
+  color: #fff;
+  transition: all 0.3s;
+  border-radius: 2px;
+  font-size: 1.5em;
+}
+.top-nav-links ul li a:hover {
+  text-decoration: underline;
+  background-color: #689ab1;
+}
+
+#error {
+  background-color: #ce14145d;
+}
+#success {
+  background-color: #0ebb515d;
+}
+
+.flushed-message {
+  text-align: center;
+  font-size: 1rem;
+}

@@ -1,0 +1,144 @@
+#search_img {
+  max-width: 5vw;
+  max-height: 4vh;
+}
+
+#search_img:hover {
+  background-color: #689ab1;
+  transition: 0.5s;
+}
+
+.left-nav-bar {
+  display: block;
+  position: fixed;
+  background-color: rgb(46, 44, 44, 0.8);
+  padding: 2%;
+  margin-top: 30vh;
+  margin-bottom: 40vh;
+  max-width: 10vw;
+}
+
+.left-nav-bar ul li {
+  list-style-type: none;
+  color: #fff;
+}
+
+.left-nav-bar ul li a:link,
+.left-nav-bar ul li a:visited {
+  text-decoration: none;
+  background-color: transparent;
+  color: #fff;
+  transition: all 0.3s;
+  border-radius: 2px;
+  font-size: 1.2rem;
+}
+.left-nav-bar ul li a:hover {
+  text-decoration: underline;
+  background-color: rgb(24, 106, 145, 0.5);
+}
+
+.item-section {
+  margin: 6vh 5vw 6vh 15vw;
+}
+
+.item-div {
+  display: inline-block;
+  background-color: rgb(25, 201, 25);
+  border-radius: 4px;
+  width: 20vw;
+  height: 15vh;
+  text-align: center;
+}
+
+.item-div img {
+  border-radius: 50%;
+  display: inline-block;
+  max-height: 8vh;
+  max-width: 8vw;
+}
+
+.item-div h3 {
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 13vw;
+  font-size: 1rem;
+}
+
+.item-div p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 16vw;
+  float: left;
+  font-size: 0.7rem;
+}
+.item-div a {
+  bottom: 0;
+}
+
+.heart-button {
+  display: inline-block;
+  background: none;
+  position: fixed;
+  border: transparent;
+}
+
+.heart {
+  width: 2vmax;
+  height: 1.8vmax;
+  transition: 0.5s ease;
+}
+
+.favourited::before,
+.favourited::after {
+  background: red !important;
+}
+
+.heart:before,
+.heart:after {
+  transition: 0.5s ease;
+  position: absolute;
+  content: "";
+  width: 1vmax;
+  height: 1.6vmax;
+  left: 0.9vmax;
+  top: 0;
+  background: dimgrey;
+  border-radius: 100% 100% 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+.heart:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+/* Porifle html css here */
+
+.my-item-section {
+  margin: 60vh 5vw 6vh 15vw;
+}
+
+/* add item html css here */
+
+.add-item-div {
+  position: relative;
+  width: 100%;
+  height: 20em;
+}
+
+.add-item-form {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 2%;
+  transform: translate(-50%, -50%);
+  border-radius: 5%;
+  background-color: rgb(26, 196, 196);
+}
+
+.add-item-form input {
+  margin: 2px;
+}

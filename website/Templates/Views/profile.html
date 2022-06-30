@@ -1,0 +1,24 @@
+{% extends "./base.html" %} {% block head %} {{ super() }}
+<title>Profile</title> {% endblock head %} {{ super() }} {% block body %}
+{{super() }}
+
+<section class="my-item-section">
+  <h2 style="text-align: center">My Items</h2>
+  <br />
+  {% for item in items %}
+  <div class="item-div">
+    <img
+      src="{{url_for('static', filename='Pictures/'+item.image)}}"
+      alt="image"
+    />
+    <h3>{{item.name}} <br />$ {{item.price}}</h3>
+    <br />
+    <p>{{item.description}}</p>
+    <form method="POST">
+      <button type="submit" value="{{item.id}}" name="delete">DELETE</button>
+    </form>
+  </div>
+  {% endfor %}
+</section>
+
+{% endblock body %} {{ super() }}

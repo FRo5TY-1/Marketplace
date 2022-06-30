@@ -1,0 +1,31 @@
+{% extends "./base.html" %} {% block head %} {{ super() }}
+<title>{{item.name}}</title> {% endblock head %} {{ super() }} {% block body %}
+{{super() }}
+<div class="item-div">
+  <img
+    src="{{url_for('static', filename='Pictures/'+item.image)}}"
+    alt="image"
+  />
+  <h3>{{item.name}} <br />$ {{item.price}}</h3>
+  <br />
+  <p>{{item.description}}</p>
+  <a href="profile/{{seller.id}}">{{seller.nickname}}</a>
+  <form method="POST" action="{{url_for('views.home')}}">
+    {% if item in favourites %}
+    <button
+      class="heart-button heart favourited"
+      type="submit"
+      name="item"
+      value="{{item.id}}"
+    ></button>
+    {% else %}
+    <button
+      class="heart-button heart"
+      type="submit"
+      name="item"
+      value="{{item.id}}"
+    ></button>
+    {% endif %}
+  </form>
+</div>
+{% endblock body %} {{ super() }}

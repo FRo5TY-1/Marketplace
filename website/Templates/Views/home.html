@@ -1,0 +1,91 @@
+{% extends "./base.html" %} {% block head %} {{ super() }}
+<title>Home</title>
+{% endblock head %} {{ super() }} {% block body %}
+<section class="header">
+  <nav class="top-nav-links">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li>
+        <form>
+          <input
+            type="search"
+            name="name"
+            id="search"
+            placeholder="Search For An Item"
+          />
+          <img
+            src="https://www.freepnglogos.com/uploads/search-png/search-icon-transparent-images-vector-16.png"
+            alt="Search"
+            type="submit"
+            id="search_img"
+            onclick="openUrl()"
+          />
+        </form>
+      </li>
+      <li><a href="/add-item">Add Item</a></li>
+      <li><a href="/favourites">Favourites</a></li>
+      {% if user.is_authenticated %}
+      <li><a href="/profile">Profile</a></li>
+      <li><a href="/logout">Logout</a></li>
+      {% else %}
+      <li><a href="/login">Login</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+</section>
+
+<section>
+  <nav class="left-nav-bar">
+    <ul>
+      <li>Categories</li>
+      <br />
+      <li><a href="/?cat=tech">Tech</a></li>
+      <li><a href="/?cat=garden">Gardening</a></li>
+      <li><a href="/?cat=books">Books</a></li>
+      <li><a href="/?cat=sports">Sports</a></li>
+    </ul>
+  </nav>
+</section>
+
+<section class="item-section">
+  {% for item, seller in items %}
+  <a href="item/{{item.id}}">
+    <div class="item-div" onclick="openItem(item.id)">
+      <img
+        src="{{url_for('static', filename='Pictures/'+item.image)}}"
+        alt="image"
+      />
+      <h3>{{item.name}} <br />$ {{item.price}}</h3>
+      <br />
+      <p>{{item.description}}</p>
+      <a href="profile/{{seller.id}}">{{seller.nickname}}</a>
+      <form method="POST" action="{{url_for('views.home')}}">
+        {% if item in favourites %}
+        <button
+          class="heart-button heart favourited"
+          type="submit"
+          name="item"
+          value="{{item.id}}"
+        ></button>
+        {% else %}
+        <button
+          class="heart-button heart"
+          type="submit"
+          name="item"
+          value="{{item.id}}"
+        ></button>
+        {% endif %}
+      </form>
+    </div>
+  </a>
+  {% endfor %}
+</section>
+
+<script>
+  function openUrl() {
+    const value = document.getElementById("search").value;
+    const url = "/?name=" + value;
+    var win = window.open(url, "_self");
+  }
+</script>
+{% endblock body %}

@@ -1,0 +1,22 @@
+{% extends "./base.html" %} {% block head %} {{ super() }}
+<title>Register</title>
+{% endblock head %} {{ super() }} {% block body %} {{ super() }}
+<div class="reg-form-box">
+  <form class="register-form" method="POST">
+    <h3>Register</h3>
+    <label for="email">Email</label>
+    <input type="email" name="email" />
+    <br />
+    <label for="nickname">NickName</label>
+    <input type="text" name="nickname" />
+    <br />
+    <label for="password">Password</label>
+    <input type="password" name="password" />
+    <br />
+    <label for="repeat-password">Repeat Password</label>
+    <input type="password" name="repeat-password" />
+    <br />
+    <button type="submit">Register</button>
+  </form>
+</div>
+{% endblock %} {{ super() }}
